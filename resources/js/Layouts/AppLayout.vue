@@ -67,9 +67,21 @@ const logout = () => {
                                     :active="route().current('basic-info.create')">
                                     Info
                                 </NavLink>
-                                <NavLink :href="route('education.create')"
-                                    :active="route().current('education.create')">
+                                <NavLink :href="route('education.index')"
+                                    :active="route().current('education.index')">
                                     Education
+                                </NavLink>
+                                <NavLink :href="route('work.index')"
+                                    :active="route().current('work.index')">
+                                    Work
+                                </NavLink>
+                                <NavLink :href="route('certificate.index')"
+                                    :active="route().current('certificate.index')">
+                                    Certificate
+                                </NavLink>
+                                <NavLink :href="route('objective.create')"
+                                    :active="route().current('objective.create')">
+                                    Objective
                                 </NavLink>
                             </div>
                         </div>

@@ -22,18 +22,18 @@ class CertificateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'degree' => ['required', 'string', 'max:255'],
-            'institution' => ['required', 'string', 'max:255'],
+            'certificate_name' => ['required', 'string', 'max:255'],
+            'about' => ['required', 'string', 'max:255'],
             'year' => ['required', 'integer'],
         ];
     }
 
     public function messages(){
         return [
-            'degree.required' =>":attribute must not be empty",
-            'degree.string' =>":attribute should be a string",
-            'institution.required' =>":attribute must not be empty",
-            'institution.string' =>":attribute should be a string",
+            'certificate_name.required' =>":attribute must not be empty",
+            'certificate_name.string' =>":attribute should be a string",
+            'about.required' =>":attribute must not be empty",
+            'about.string' =>":attribute should be a string",
             'year.required' =>":attribute must not be empty",
             'year.integer' =>":attribute should be an integer",
         ];

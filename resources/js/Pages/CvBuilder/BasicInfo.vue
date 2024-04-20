@@ -41,9 +41,9 @@ const submit = () => {
         </template>
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-between">
+                <div class="flex justify-between gap-5">
  
-                    <div class="bg-white w-8/12 overflow-hidden shadow-xl sm:rounded-lg p-10">
+                    <div class="bg-white w-4/5 overflow-hidden shadow-xl sm:rounded-lg p-10">
                         <form @submit.prevent="submit">
                             <div class="flex justify-center flex-wrap gap-4">
                                 <div class="w-[48%]">
@@ -112,7 +112,7 @@ const submit = () => {
 
                             <div class="flex items-center justify-end mt-4">
 
-                                <PrimaryButton class="me-1" :class="{ 'opacity-25': form.processing }"
+                                <PrimaryButton class="me-2" :class="{ 'opacity-25': form.processing }"
                                     :disabled="form.processing">
                                     Next
                                 </PrimaryButton>
@@ -121,7 +121,8 @@ const submit = () => {
                     </div>
 
                     <div class="w-1/5">
-                        <img src="/img/cv.png" alt="" srcset="">
+                        <img src="/img/cv.jpg" alt="" srcset="">
+                        <h5 class="text-md text-gray-400 mt-2 font-bold text-center">This is a Demo Resume.</h5>
                     </div>
 
                 </div>

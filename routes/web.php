@@ -7,7 +7,9 @@ use App\Http\Controllers\{
     BasicInfoController,
     EducationController,
     WorkController,
-    CertificateController   
+    CertificateController,
+    ObjectiveController,
+    PdfController
 };
 
 Route::get('/', function () {
@@ -32,16 +34,25 @@ Route::middleware([
     Route::resource('basic-info', BasicInfoController::class, [
         'only' => ['create', 'store']
     ]);
+    
+    Route::resource('objective', ObjectiveController::class, [
+        'only' => ['create', 'store']
+    ]);
 
     Route::resource('education', EducationController::class, [
-        'only' => ['create', 'store']
+        'except' => ['show'],
     ]);
 
     Route::resource('work', WorkController::class, [
-        'only' => ['create', 'store']
+        'except' => ['show'],
     ]);
     
     Route::resource('certificate', CertificateController::class, [
-        'only' => ['create', 'store']
+        'except' => ['show'],
     ]);
+
+    
+    //PDF
+    Route::get('pdf-display', [PdfController::class, 'index'])->name('pdf_index');
+    Route::get('pdf-download', [PdfController::class, 'download'])->name('download');
 });

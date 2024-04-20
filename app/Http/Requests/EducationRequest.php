@@ -23,7 +23,7 @@ class EducationRequest extends FormRequest
     {
         return [
             'degree' => ['required', 'string', 'max:255'],
-            'institution' => ['required', 'string', 'max:255'],
+            'institute' => ['required', 'string', 'max:255'],
             'year' => ['required', 'integer'],
         ];
     }
@@ -32,8 +32,8 @@ class EducationRequest extends FormRequest
         return [
             'degree.required' =>":attribute must not be empty",
             'degree.string' =>":attribute should be a string",
-            'institution.required' =>":attribute must not be empty",
-            'institution.string' =>":attribute should be a string",
+            'institute.required' =>":attribute must not be empty",
+            'institute.string' =>":attribute should be a string",
             'year.required' =>":attribute must not be empty",
             'year.integer' =>":attribute should be an integer",
         ];

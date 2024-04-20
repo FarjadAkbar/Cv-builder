@@ -22,7 +22,7 @@ class BasicInfoController extends Controller
         $basicInfo->user_id = Auth::id();
 
         if ($basicInfo->save()) {
-            return redirect()->route('education.create')->with('success', 'Info saved successfully!');
+            return redirect()->route('education.index')->with('success', 'Info saved successfully!');
         } else {
             return redirect()->back()->with('error', 'Error on saving record!');
         }

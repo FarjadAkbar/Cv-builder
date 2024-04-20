@@ -29,6 +29,7 @@ class BasicInfoRequest extends FormRequest
             'address' => ['required', 'string', 'max:255'],
             'website' => ['nullable', 'url'],
             'post_code' => ['nullable', 'integer'],
+            'division' => ['nullable', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:18'],
         ];
     }
@@ -45,6 +46,7 @@ class BasicInfoRequest extends FormRequest
             'email.email' =>"please enter a valid :attribute",
             'website.URL' =>"enter a valid :attribute",
             'post_code.integer' =>"enter valid :attribute",
+            'division.string' =>":attribute should be a string",
             'phone.required' =>":attribute Must not be empty",
             'phone.integer' =>"enter valid :attribute",
         ];

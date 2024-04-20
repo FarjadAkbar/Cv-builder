@@ -11,7 +11,7 @@ class Education extends Model
     protected $table='education';
     protected $fillable = [
         'degree',
-        'institution',
+        'institute',
         'year'
     ];
 }
