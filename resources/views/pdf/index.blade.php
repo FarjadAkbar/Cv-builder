@@ -1,151 +1,140 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <style>
-            .page-break {
-                page-break-after: always;
-            }
-        </style>
-        <title>Make you Resume as PDF</title>
-    </head>
-    <body>
-        <div class="container " >
-            <div class="main-content mt-4" style="border: 1px solid;padding:15px; margin:30px 0">
-                <div class="row justify-content-center">
-                    <div class="offset ">
-                        <table>
-                            <tr>
-                                <h4 style="text-transform:uppercase;text-align:center">Curriculum Vitae</h4>
-                            </tr>
-                        </table>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Bloom - Curriculum Vitae</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-                    </div>
-                </div>
-                <div class="row justify-content-center mt-3">
-                    <div class="col-11">
-                        <div class="row">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <div class="name">
-                                            <h5 style="font-weight:700" class="m-0 p-0">{{$data['basicInfo']->first_name }}{{" " .$data['basicInfo']->last_name }}</h5>
-                                            <span class="m-0 p-0">{{$data['basicInfo']->profession }}</span>
-                                        </div>
-                                        <span class="d-block">{{$data['basicInfo']->post_code }},{{$data['basicInfo']->address }}</span>
-                                        <span class="d-block">{{$data['basicInfo']->division }},Bangladesh</span>
-                                    </td>
-                                    <td><span style="margin:0 50px"></span></td>
-                                    <td style="float:right;">
-                                        <h6><b>Email : </b> {{$data['basicInfo']->email }}</h6>
-                                        <h6><b>Website : </b> {{$data['basicInfo']->website }}</h6>
-                                        <h6><b>Phone : </b> {{$data['basicInfo']->phone }}</h6>
-                                    </td> 
-                                </tr>
+header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
 
-                            </table>
+h1,
+h2,
+h3 {
+    margin-bottom: 0;
+}
 
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row justify-content-center">
-                    <div class="col-md-11">
-                        <h4>Objective</h4>
-                        <p>{{$data['objective']->career_object }}</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="row justify-content-center">
-                    <div class="col-md-11">
-                        <h4>Education</h4>
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Degree / Diploma</th>
-                                    <th scope="col">Institue</th>
-                                    <th scope="col">Year</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($data['educations'] as $edu)
-                                <tr>
-                                    <td>{{$edu->degree }}</td>
-                                    <td>{{$edu->institute }}</td>
-                                    <td>{{$edu->year }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <hr>
-                <div class="row justify-content-center">
-                    <div class="col-md-11">
-                        <h4>Work Experience</h4>
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Company Name</th>
-                                    <th scope="col">Position</th>
-                                    <th scope="col">Year</th>
-                                </tr>
+h1 {
+    font-size: 2em;
+}
 
-                            </thead>
-                            <tbody>
-                                @foreach ($data['works'] as $work)
-                                <tr>
-                                    <td>{{$work->company_name }}</td>
-                                    <td>{{$work->position }}</td>
-                                    <td>{{$work->year }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <hr>
-                <div class="row justify-content-center">
-                    <div class="col-md-11">
-                        <h4>Certification</h4>
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Certification</th>
-                                    <th scope="col">Institue</th>
-                                    <th scope="col">Year</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($data['certificates'] as $cer)
-                                <tr>
-                                    <td>{{$cer->certificate_name }}</td>
-                                    <td>{{$cer->about }}</td>
-                                    <td>{{$cer->year }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    
-                    <div class="col-6 text-right">
-                        <a href="{{ url('pdf-download')}}" class="btn btn-primary" onclick="return confirm('Are you Sure ?')">Download</a>
-                    </div>
-                </div>
-            </div> <!-- main-content -->
-        </div> <!-- container -->
-        <!-- ptional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    </body>
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.contact-info,
+.objective,
+.education,
+.work-experience,
+.professional-qualification {
+    padding: 5px 20px;
+}
+
+.contact-info,
+.objective{
+    border-bottom: 1px solid #ddd;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+
+th,
+td {
+    font-size: 0.9em;
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+</style>
+<body>
+    <header>
+        <h1>Curriculum Vitae</h1>
+        <h2>{{ $data['basicInfo']->first_name }} {{ $data['basicInfo']->last_name }}</h2>
+        <p><small>{{ $data['basicInfo']->profession }}</small></p>
+    </header>
+    <main>
+        <section class="contact-info">
+            <h3>Contact Information</h3>
+            <p>Address: {{ $data['basicInfo']->address }}, {{ $data['basicInfo']->division }}, {{ $data['basicInfo']->post_code }}</p>
+            <p>Email: {{ $data['basicInfo']->email }}</p>
+            <p>Website: {{ $data['basicInfo']->website }}</p>
+            <p>Phone: {{ $data['basicInfo']->phone }}</p>
+        </section>
+        <section class="objective">
+            <h3>Objective</h3>
+            <p>{{$data['objective']->career_object }}</p>
+        </section>
+        <section class="education">
+            <h3>Education</h3>
+            <table>
+                <tr style="background-color: #f1f1f1;">
+                    <th scope="col">Degree / Diploma</th>
+                    <th scope="col">Institue</th>
+                    <th scope="col">Year</th>
+                </tr>
+                @foreach ($data['educations'] as $edu)
+                <tr>
+                    <td>{{$edu->degree }}</td>
+                    <td>{{$edu->institute }}</td>
+                    <td>{{$edu->year }}</td>
+                </tr>
+                @endforeach
+            </table>
+        </section>
+        <section class="work-experience">
+            <h3>Work Experience</h3>
+            <table>
+                <tr style="background-color: #f1f1f1;">
+                    <th>Company Name</th>
+                    <th>Position</th>
+                    <th>Year</th>
+                </tr>
+                @foreach ($data['works'] as $work)
+                <tr>
+                    <td>{{$work->company_name }}</td>
+                    <td>{{$work->position }}</td>
+                    <td>{{$work->year }}</td>
+                </tr>
+                @endforeach
+            </table>
+        </section>
+        <section class="professional-qualification">
+            <h3>Professional Qualification</h3>
+            <table>
+                <tr style="background-color: #f1f1f1;">
+                    <th>Title</th>
+                    <th>Regulated Body</th>
+                    <th>Year</th>
+                </tr>
+                @foreach ($data['certificates'] as $cer)
+                <tr>
+                    <td>{{$cer->certificate_name }}</td>
+                    <td>{{$cer->about }}</td>
+                    <td>{{$cer->year }}</td>
+                </tr>
+                @endforeach
+            </table>
+        </section>
+    </main>
+</body>
 </html>

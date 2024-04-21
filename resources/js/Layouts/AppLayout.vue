@@ -83,6 +83,10 @@ const logout = () => {
                                     :active="route().current('objective.create')">
                                     Objective
                                 </NavLink>
+                                <NavLink :href="route('pdf_index')"
+                                    :active="route().current('pdf_index')">
+                                    Resume
+                                </NavLink>
                             </div>
                         </div>
 
