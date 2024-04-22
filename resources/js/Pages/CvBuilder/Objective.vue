@@ -6,11 +6,13 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import InputArea from '@/Components/InputArea.vue';
-
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const props = defineProps({
     objective: Object
 })
+const editor = ClassicEditor;
+const editorConfig = {};
 
 const { career_object } = props.objective ?? {};
 const form = useForm({
@@ -40,8 +42,9 @@ const submit = () => {
                             <div class="flex justify-center flex-wrap gap-4">
                                 <div class="w-full">
                                     <InputLabel for="career_object" value="Career Object" />
-                                    <InputArea id="career_object" v-model="form.career_object" type="text"
-                                        class="mt-1 block w-full" required autofocus autocomplete="career_object" />
+                                    <ckeditor :editor="editor" v-model="form.career_object" :config="editorConfig"></ckeditor>
+                                    <!-- <InputArea id="career_object" v-model="form.career_object" type="text"
+                                        class="mt-1 block w-full" required autofocus autocomplete="career_object" /> -->
                                     <InputError class="mt-2" :message="form.errors.career_object" />
                                 </div>
                             </div>
